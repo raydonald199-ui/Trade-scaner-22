@@ -1,13 +1,8 @@
-definitions:
-  instance_mac_mini_m1: &instance_mac_mini_m1
-    instance_type: mac_mini_m1
-    os: macos
-    arch: m1
-
 workflows:
   market_overview_default:
     name: Market Overview Flutter Build
-    instance: *instance_mac_mini_m1
+    instance_type: mac_mini_m1
+    os: macos
     
     environment:
       flutter: stable
@@ -20,9 +15,9 @@ workflows:
     triggering:
       events:
         - push
-      branches:
-        - develop
-        - main
+      branch_patterns:
+        - pattern: develop
+        - pattern: main
 
     scripts:
       - name: Install Flutter dependencies
@@ -59,13 +54,16 @@ workflows:
 
     publishing:
       email:
+        recipients:
+          - $DEVELOPER_EMAIL
         notify:
           success: true
           failure: true
 
   market_overview_ios:
     name: Market Overview iOS Build
-    instance: *instance_mac_mini_m1
+    instance_type: mac_mini_m1
+    os: macos
     
     environment:
       flutter: stable
@@ -75,8 +73,8 @@ workflows:
     triggering:
       events:
         - push
-      branches:
-        - main
+      branch_patterns:
+        - pattern: main
 
     scripts:
       - name: Get Flutter dependencies
@@ -91,9 +89,18 @@ workflows:
     artifacts:
       - build/ios/iphoneos/*.app
 
+    publishing:
+      email:
+        recipients:
+          - $DEVELOPER_EMAIL
+        notify:
+          success: true
+          failure: true
+
   market_overview_android:
     name: Market Overview Android Build
-    instance: *instance_mac_mini_m1
+    instance_type: mac_mini_m1
+    os: macos
 
     environment:
       flutter: stable
@@ -101,8 +108,8 @@ workflows:
     triggering:
       events:
         - push
-      branches:
-        - main
+      branch_patterns:
+        - pattern: main
 
     scripts:
       - name: Get Flutter dependencies
@@ -117,9 +124,18 @@ workflows:
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
 
+    publishing:
+      email:
+        recipients:
+          - $DEVELOPER_EMAIL
+        notify:
+          success: true
+          failure: true
+
   market_overview_web:
     name: Market Overview Web Build
-    instance: *instance_mac_mini_m1
+    instance_type: mac_mini_m1
+    os: macos
 
     environment:
       flutter: stable
@@ -127,8 +143,8 @@ workflows:
     triggering:
       events:
         - push
-      branches:
-        - main
+      branch_patterns:
+        - pattern: main
 
     scripts:
       - name: Get Flutter dependencies
@@ -139,3 +155,11 @@ workflows:
 
     artifacts:
       - build/web
+
+    publishing:
+      email:
+        recipients:
+          - $DEVELOPER_EMAIL
+        notify:
+          success: true
+          failure: true
