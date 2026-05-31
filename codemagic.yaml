@@ -2,7 +2,6 @@ workflows:
   market_overview_default:
     name: Market Overview Flutter Build
     instance_type: mac_mini_m1
-    os: macos
     
     environment:
       flutter: stable
@@ -63,7 +62,6 @@ workflows:
   market_overview_ios:
     name: Market Overview iOS Build
     instance_type: mac_mini_m1
-    os: macos
     
     environment:
       flutter: stable
@@ -100,7 +98,6 @@ workflows:
   market_overview_android:
     name: Market Overview Android Build
     instance_type: mac_mini_m1
-    os: macos
 
     environment:
       flutter: stable
@@ -135,7 +132,6 @@ workflows:
   market_overview_web:
     name: Market Overview Web Build
     instance_type: mac_mini_m1
-    os: macos
 
     environment:
       flutter: stable
