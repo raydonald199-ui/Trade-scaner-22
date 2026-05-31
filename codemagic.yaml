@@ -51,10 +51,10 @@ workflows:
       - build/app/outputs/flutter-apk/app-release.apk
       - build/web
 
-    publishing:
+    notifications:
       email:
         recipients:
-          - $DEVELOPER_EMAIL
+          - raydonald199@gmail.com
         notify:
           success: true
           failure: true
@@ -87,10 +87,10 @@ workflows:
     artifacts:
       - build/ios/iphoneos/*.app
 
-    publishing:
+    notifications:
       email:
         recipients:
-          - $DEVELOPER_EMAIL
+          - raydonald199@gmail.com
         notify:
           success: true
           failure: true
@@ -121,10 +121,10 @@ workflows:
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
 
-    publishing:
+    notifications:
       email:
         recipients:
-          - $DEVELOPER_EMAIL
+          - raydonald199@gmail.com
         notify:
           success: true
           failure: true
@@ -152,10 +152,10 @@ workflows:
     artifacts:
       - build/web
 
-    publishing:
+    notifications:
       email:
         recipients:
-          - $DEVELOPER_EMAIL
+          - raydonald199@gmail.com
         notify:
           success: true
           failure: true
