@@ -51,13 +51,10 @@ workflows:
       - build/app/outputs/flutter-apk/app-release.apk
       - build/web
 
-    notifications:
+    publishing:
       email:
         recipients:
           - raydonald199@gmail.com
-        notify:
-          success: true
-          failure: true
 
   market_overview_ios:
     name: Market Overview iOS Build
@@ -87,13 +84,10 @@ workflows:
     artifacts:
       - build/ios/iphoneos/*.app
 
-    notifications:
+    publishing:
       email:
         recipients:
           - raydonald199@gmail.com
-        notify:
-          success: true
-          failure: true
 
   market_overview_android:
     name: Market Overview Android Build
@@ -121,13 +115,10 @@ workflows:
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
 
-    notifications:
+    publishing:
       email:
         recipients:
           - raydonald199@gmail.com
-        notify:
-          success: true
-          failure: true
 
   market_overview_web:
     name: Market Overview Web Build
@@ -152,10 +143,7 @@ workflows:
     artifacts:
       - build/web
 
-    notifications:
+    publishing:
       email:
         recipients:
           - raydonald199@gmail.com
-        notify:
-          success: true
-          failure: true
